@@ -1,0 +1,181 @@
+Container(
+              width: screenSize.width,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25))),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                child: Column(
+                  children: [
+                    const SectionBreaker(),
+                    const SizedBox(height: 20),
+                    //Single Blog Post Template
+                    GridView.builder(
+                      itemCount: 3,
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 1, mainAxisSpacing: 5),
+                      itemBuilder: (context, index) {
+                        return const BlogPostTemplate(
+                          title: "Helloooooooooooooooooooooo",
+                          author: "Auther Here",
+                          category: "Enrter",
+                          coverImage: "./ae",
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+            Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom:
+                                      BorderSide(color: Colors.grey.shade300))),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.redAccent,
+                                          borderRadius:
+                                              BorderRadius.circular(7)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 4),
+                                        child: CustomPoppingText(
+                                          text: 'Entertainment'.toUpperCase(),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      width: 240,
+                                      height: 100,
+                                      decoration: const BoxDecoration(),
+                                      child: const Text(
+                                        "Test Time",
+                                        softWrap: true,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 18),
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    Row(
+                                      children: [
+                                        const CircleAvatar(
+                                          radius: 15,
+                                          backgroundColor: Colors.amber,
+                                        ),
+                                        const SizedBox(
+                                          width: 20,
+                                        ),
+                                        Text(
+                                          "Test tse est",
+                                          // widget.author.length > 23
+                                          //     ? widget.author.substring(0, 23)
+                                          //     : widget.author,
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.grey.shade600),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(20)),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+
+
+
+
+                        ---------------------------------------
+
+
+                         borderSide: const BorderSide(color: Colors.black),
+            borderRadius: BorderRadius.circular(15)
+
+--------------------------------------------------------------------------------------------------
+
+Align(
+                    
+                    child: BlurryContainer(
+                        blur: 15,
+                        width: MediaQuery.sizeOf(context).width,
+                        color: Colors.black26,
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomPoppingText(
+                                text: "Eula",
+                                fontSize: 52,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              CustomPoppingText(
+                                text: "Hanson",
+                                fontSize: 52,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              CustomPoppingText(
+                                text: "Interio Desinger",
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                        )),
+                  ),
+
+                  ------------------------------
+                  '
+
+                   future: BlogPostController().fetchBlogs(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return const Text("Has Error !!!!!");
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              }
